@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoneyWise — Understand what you're signing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="ledger-bg" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">₹</span>
+    <span class="brand-name">MoneyWise</span>
+  </div>
+  <p class="tagline">Paste it. Upload it. Understand it before you sign it.</p>
+</header>
+
+<main class="layout">
+
+  <section class="input-panel" aria-label="Document input">
+    <div class="panel-head">
+      <h2>What are you looking at?</h2>
+      <p class="hint">A brochure, a loan agreement, credit card terms, an investment pitch, or that "guaranteed returns" message from your agent — drop it in.</p>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="text" role="tab" aria-selected="true">Describe / paste text</button>
+      <button class="tab" data-tab="file" role="tab" aria-selected="false">Upload PDF or image</button>
+    </div>
+
+    <div class="tab-panel" data-panel="text">
+      <textarea id="textInput" placeholder="e.g. My agent wants me to buy a ULIP that combines insurance and investment, premium ₹25,000/year for 10 years. Is this good for someone earning ₹6 LPA?"></textarea>
+    </div>
+
+    <div class="tab-panel hidden" data-panel="file">
+      <label class="dropzone" id="dropzone" for="fileInput">
+        <span class="dropzone-icon">📄</span>
+        <span class="dropzone-text">Click to choose a PDF or image</span>
+        <span class="dropzone-sub" id="fileName">No file chosen</span>
+      </label>
+      <input type="file" id="fileInput" accept="application/pdf,image/*" hidden>
+    </div>
+
+    <button id="analyzeBtn" class="analyze-btn">
+      <span class="btn-label">Break it down</span>
+    </button>
+    <p class="error" id="errorMsg" role="alert"></p>
+    <p class="disclaimer">MoneyWise explains documents in plain language. It is not licensed financial, legal, or tax advice — always confirm details with the provider.</p>
+  </section>
+
+  <section class="output-panel" aria-label="Analysis result">
+    <div class="page-stamp" id="pageStamp">
+      <div class="empty-state" id="emptyState">
+        <span class="empty-icon">🧾</span>
+        <p>Your plain-language breakdown will appear here — stamped, sectioned, and jargon-free.</p>
+      </div>
+      <div class="result" id="result" hidden></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Built with Vibe Coding — FastAPI · Gemini API · Docker · AWS</p>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
