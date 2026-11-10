@@ -97,6 +97,4 @@ on the environment's dashboard.
 - The response is streamed back to the browser chunk-by-chunk (`StreamingResponse`) and
   rendered progressively in the UI as it arrives 
 
-## Limitations / disclaimer
-MoneyWise is a financial **literacy** tool. It does not give personalized investment, legal,
-or tax advice, and users should verify details with the actual provider or a licensed advisor.
+ 
